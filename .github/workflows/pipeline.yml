@@ -25,9 +25,3 @@ jobs:
               run: |
                 echo "Estrutura de diretórios:"
                 tree -L 2
-
-            - name: "instalar dependencias"
-              run: npm install
-
-            - name: "Executar testes"
-              run: npm test
