@@ -1,0 +1,33 @@
+name: "Estrutura de diretório de Arquivos"
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+env:
+    NODE_VERSION: 18
+
+jobs:
+    demonstrando-estrutura:
+        name: "Estrutura básica"
+        runs-on: ubuntu-latest
+        steps:
+            - name: "Checkout do código"
+              uses: actions/checkout@v4
+
+            - name: "Configurar Node.js"
+              uses: actions/setup-node@v4
+              with:
+                node-version: ${{ env.NODE_VERSION }}
+
+            - name: "Demonstrar estrutura de diretórios"
+              run: |
+                echo "Estrutura de diretórios:"
+                tree -L 2
+
+            - name: "instalar dependencias"
+              run: npm install
+
+            - name: "Executar testes"
+              run: npm test
